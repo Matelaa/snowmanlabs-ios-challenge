@@ -35,6 +35,13 @@ class FAQHomeViewController: UIViewController {
     }
     
     private func setupTableView() {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        self.tableView.register(FAQHomeTableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        self.tableView.separatorStyle = .none
+        
         self.setupTableViewConstraints()
     }
     
@@ -45,5 +52,21 @@ class FAQHomeViewController: UIViewController {
             self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
             self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -24),
         ])
+    }
+}
+
+extension FAQHomeViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FAQHomeTableViewCell
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }
