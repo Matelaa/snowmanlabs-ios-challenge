@@ -17,6 +17,7 @@
 		F2FEAA7725DADBA200835B75 /* FAQHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEAA7625DADBA200835B75 /* FAQHomeTableViewCell.swift */; };
 		F2FEAA7C25DAE6E100835B75 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEAA7B25DAE6E100835B75 /* Question.swift */; };
 		F2FEAA8025DAE75200835B75 /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEAA7F25DAE75200835B75 /* QuestionService.swift */; };
+		F2FEAA8525DAE98A00835B75 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEAA8425DAE98A00835B75 /* QuestionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F2FEAA7625DADBA200835B75 /* FAQHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQHomeTableViewCell.swift; sourceTree = "<group>"; };
 		F2FEAA7B25DAE6E100835B75 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		F2FEAA7F25DAE75200835B75 /* QuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionService.swift; sourceTree = "<group>"; };
+		F2FEAA8425DAE98A00835B75 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				F22D887C25DAD5E100E5A44F /* Controllers */,
 				F2FEAA7A25DAE6D000835B75 /* Model */,
 				F2FEAA7E25DAE73600835B75 /* Service */,
+				F2FEAA8325DAE97600835B75 /* ViewModel */,
 				F22D886F25DACE3800E5A44F /* LaunchScreen.storyboard */,
 				F2FEAA6225DAD80800835B75 /* GoogleService-Info.plist */,
 				F22D887225DACE3800E5A44F /* Info.plist */,
@@ -146,6 +149,14 @@
 				F2FEAA7F25DAE75200835B75 /* QuestionService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		F2FEAA8325DAE97600835B75 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F2FEAA8425DAE98A00835B75 /* QuestionViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2FEAA7C25DAE6E100835B75 /* Question.swift in Sources */,
+				F2FEAA8525DAE98A00835B75 /* QuestionViewModel.swift in Sources */,
 				F22D886525DACE3600E5A44F /* AppDelegate.swift in Sources */,
 				F2FEAA7725DADBA200835B75 /* FAQHomeTableViewCell.swift in Sources */,
 				F2FEAA8025DAE75200835B75 /* QuestionService.swift in Sources */,
