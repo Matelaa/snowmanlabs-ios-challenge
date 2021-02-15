@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A3AD61884F7BDD5CA117740 /* Pods_snowmanlabs_ios_challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9923A8EF2A47D1666FDD08 /* Pods_snowmanlabs_ios_challenge.framework */; };
 		F22D886525DACE3600E5A44F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D886425DACE3600E5A44F /* AppDelegate.swift */; };
 		F22D886725DACE3600E5A44F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D886625DACE3600E5A44F /* SceneDelegate.swift */; };
 		F22D886925DACE3600E5A44F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D886825DACE3600E5A44F /* ViewController.swift */; };
-		F22D886C25DACE3600E5A44F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22D886A25DACE3600E5A44F /* Main.storyboard */; };
 		F22D886E25DACE3800E5A44F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22D886D25DACE3800E5A44F /* Assets.xcassets */; };
 		F22D887125DACE3800E5A44F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22D886F25DACE3800E5A44F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2CB290D3084A99955F91AAD3 /* Pods-snowmanlabs-ios-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-snowmanlabs-ios-challenge.release.xcconfig"; path = "Target Support Files/Pods-snowmanlabs-ios-challenge/Pods-snowmanlabs-ios-challenge.release.xcconfig"; sourceTree = "<group>"; };
+		3A9923A8EF2A47D1666FDD08 /* Pods_snowmanlabs_ios_challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_snowmanlabs_ios_challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FF1AF402A28D2F0A10FBB19 /* Pods-snowmanlabs-ios-challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-snowmanlabs-ios-challenge.debug.xcconfig"; path = "Target Support Files/Pods-snowmanlabs-ios-challenge/Pods-snowmanlabs-ios-challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		F22D886125DACE3600E5A44F /* snowmanlabs-ios-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "snowmanlabs-ios-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22D886425DACE3600E5A44F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F22D886625DACE3600E5A44F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F22D886825DACE3600E5A44F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F22D886B25DACE3600E5A44F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F22D886D25DACE3800E5A44F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F22D887025DACE3800E5A44F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F22D887225DACE3800E5A44F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,17 +33,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A3AD61884F7BDD5CA117740 /* Pods_snowmanlabs_ios_challenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01CA7C35FD0EBB6081FE8904 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A9923A8EF2A47D1666FDD08 /* Pods_snowmanlabs_ios_challenge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9EA0317E8258808157F13DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FF1AF402A28D2F0A10FBB19 /* Pods-snowmanlabs-ios-challenge.debug.xcconfig */,
+				2CB290D3084A99955F91AAD3 /* Pods-snowmanlabs-ios-challenge.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F22D885825DACE3600E5A44F = {
 			isa = PBXGroup;
 			children = (
 				F22D886325DACE3600E5A44F /* snowmanlabs-ios-challenge */,
 				F22D886225DACE3600E5A44F /* Products */,
+				A9EA0317E8258808157F13DA /* Pods */,
+				01CA7C35FD0EBB6081FE8904 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +79,30 @@
 		F22D886325DACE3600E5A44F /* snowmanlabs-ios-challenge */ = {
 			isa = PBXGroup;
 			children = (
-				F22D886425DACE3600E5A44F /* AppDelegate.swift */,
-				F22D886625DACE3600E5A44F /* SceneDelegate.swift */,
-				F22D886825DACE3600E5A44F /* ViewController.swift */,
-				F22D886A25DACE3600E5A44F /* Main.storyboard */,
-				F22D886D25DACE3800E5A44F /* Assets.xcassets */,
+				F22D887B25DAD5BC00E5A44F /* Application */,
+				F22D887C25DAD5E100E5A44F /* Controllers */,
 				F22D886F25DACE3800E5A44F /* LaunchScreen.storyboard */,
 				F22D887225DACE3800E5A44F /* Info.plist */,
 			);
 			path = "snowmanlabs-ios-challenge";
+			sourceTree = "<group>";
+		};
+		F22D887B25DAD5BC00E5A44F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F22D886425DACE3600E5A44F /* AppDelegate.swift */,
+				F22D886625DACE3600E5A44F /* SceneDelegate.swift */,
+				F22D886D25DACE3800E5A44F /* Assets.xcassets */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F22D887C25DAD5E100E5A44F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F22D886825DACE3600E5A44F /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +112,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F22D887525DACE3800E5A44F /* Build configuration list for PBXNativeTarget "snowmanlabs-ios-challenge" */;
 			buildPhases = (
+				CB86B23DFA93932B49C57645 /* [CP] Check Pods Manifest.lock */,
 				F22D885D25DACE3600E5A44F /* Sources */,
 				F22D885E25DACE3600E5A44F /* Frameworks */,
 				F22D885F25DACE3600E5A44F /* Resources */,
@@ -126,11 +165,35 @@
 			files = (
 				F22D887125DACE3800E5A44F /* LaunchScreen.storyboard in Resources */,
 				F22D886E25DACE3800E5A44F /* Assets.xcassets in Resources */,
-				F22D886C25DACE3600E5A44F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CB86B23DFA93932B49C57645 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-snowmanlabs-ios-challenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F22D885D25DACE3600E5A44F /* Sources */ = {
@@ -146,14 +209,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F22D886A25DACE3600E5A44F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F22D886B25DACE3600E5A44F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F22D886F25DACE3800E5A44F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,6 +338,7 @@
 		};
 		F22D887625DACE3800E5A44F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FF1AF402A28D2F0A10FBB19 /* Pods-snowmanlabs-ios-challenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +358,7 @@
 		};
 		F22D887725DACE3800E5A44F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CB290D3084A99955F91AAD3 /* Pods-snowmanlabs-ios-challenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
