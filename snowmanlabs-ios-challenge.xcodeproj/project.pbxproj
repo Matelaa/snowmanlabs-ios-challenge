@@ -3,17 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		9A3AD61884F7BDD5CA117740 /* Pods_snowmanlabs_ios_challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9923A8EF2A47D1666FDD08 /* Pods_snowmanlabs_ios_challenge.framework */; };
 		F22D886525DACE3600E5A44F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D886425DACE3600E5A44F /* AppDelegate.swift */; };
 		F22D886725DACE3600E5A44F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D886625DACE3600E5A44F /* SceneDelegate.swift */; };
-		F22D886925DACE3600E5A44F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D886825DACE3600E5A44F /* ViewController.swift */; };
 		F22D886E25DACE3800E5A44F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22D886D25DACE3800E5A44F /* Assets.xcassets */; };
 		F22D887125DACE3800E5A44F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22D886F25DACE3800E5A44F /* LaunchScreen.storyboard */; };
 		F2FEAA6325DAD80800835B75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2FEAA6225DAD80800835B75 /* GoogleService-Info.plist */; };
+		F2FEAA7325DAD91C00835B75 /* FAQHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEAA7225DAD91C00835B75 /* FAQHomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +23,11 @@
 		F22D886125DACE3600E5A44F /* snowmanlabs-ios-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "snowmanlabs-ios-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22D886425DACE3600E5A44F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F22D886625DACE3600E5A44F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F22D886825DACE3600E5A44F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F22D886D25DACE3800E5A44F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F22D887025DACE3800E5A44F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F22D887225DACE3800E5A44F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2FEAA6225DAD80800835B75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F2FEAA7225DAD91C00835B75 /* FAQHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQHomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +102,17 @@
 		F22D887C25DAD5E100E5A44F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F22D886825DACE3600E5A44F /* ViewController.swift */,
+				F2FEAA7025DAD8FC00835B75 /* FAQ Home */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F2FEAA7025DAD8FC00835B75 /* FAQ Home */ = {
+			isa = PBXGroup;
+			children = (
+				F2FEAA7225DAD91C00835B75 /* FAQHomeViewController.swift */,
+			);
+			path = "FAQ Home";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,9 +229,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F22D886925DACE3600E5A44F /* ViewController.swift in Sources */,
 				F22D886525DACE3600E5A44F /* AppDelegate.swift in Sources */,
 				F22D886725DACE3600E5A44F /* SceneDelegate.swift in Sources */,
+				F2FEAA7325DAD91C00835B75 /* FAQHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

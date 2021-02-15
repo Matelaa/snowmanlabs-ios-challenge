@@ -16,8 +16,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let mainController = FAQHomeViewController()
+        let navigationController = UINavigationController(rootViewController: mainController)
+        
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.barTintColor = UIColor(red: 0.06, green: 0.09, blue: 0.60, alpha: 1.00)
+        navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController.navigationBar.tintColor = .white
+        
         window?.windowScene = windowScene
-        window?.rootViewController = ViewController()
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 
