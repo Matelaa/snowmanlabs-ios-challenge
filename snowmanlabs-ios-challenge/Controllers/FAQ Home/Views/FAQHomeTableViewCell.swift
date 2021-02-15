@@ -9,6 +9,69 @@ import UIKit
 
 class FAQHomeTableViewCell: UITableViewCell {
     
+    lazy var backgroundColoredView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var mainBackgroundView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.spacing = 10
+        
+        return stackView
+    }()
+    
+    lazy var contentViewToTitle: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var titleQuestionLabel: UILabel = {
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        label.text = "Titulo da pergunta"
+        
+        return label
+    }()
+    
+    lazy var arrowIcon: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "arrow"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    lazy var answerQuestionLabel: UILabel = {
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        label.text = "Resposta da pergunta"
+        
+        return label
+    }()
+    
+    lazy var spacingView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -17,5 +80,63 @@ class FAQHomeTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.selectionStyle = .none
+        
+        self.answerQuestionLabel.isHidden = true
+        self.arrowIcon.tintColor = UIColor(red: 0.46, green: 0.47, blue: 0.52, alpha: 1.00)
+        self.spacingView.backgroundColor = .clear
+        
+        self.setupUI()
+    }
+    
+    private func setupUI() {
+        self.addSubview(self.backgroundColoredView)
+        
+        self.backgroundColoredView.addSubview(self.mainBackgroundView)
+        
+        self.mainBackgroundView.addSubview(self.stackView)
+        
+        self.stackView.addArrangedSubview(self.contentViewToTitle)
+        
+        self.contentViewToTitle.addSubview(self.titleQuestionLabel)
+        self.contentViewToTitle.addSubview(self.arrowIcon)
+        
+        self.stackView.addArrangedSubview(self.answerQuestionLabel)
+        self.stackView.addArrangedSubview(self.spacingView)
+        
+        self.setupConstraints()
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            self.backgroundColoredView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            self.backgroundColoredView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8),
+            self.backgroundColoredView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8),
+            self.backgroundColoredView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
+            
+            self.mainBackgroundView.topAnchor.constraint(equalTo: self.backgroundColoredView.topAnchor),
+            self.mainBackgroundView.leftAnchor.constraint(equalTo: self.backgroundColoredView.leftAnchor, constant: 2),
+            self.mainBackgroundView.rightAnchor.constraint(equalTo: self.backgroundColoredView.rightAnchor),
+            self.mainBackgroundView.bottomAnchor.constraint(equalTo: self.backgroundColoredView.bottomAnchor),
+            
+            self.stackView.topAnchor.constraint(equalTo: self.mainBackgroundView.topAnchor, constant: 16),
+            self.stackView.leftAnchor.constraint(equalTo: self.mainBackgroundView.leftAnchor, constant: 16),
+            self.stackView.rightAnchor.constraint(equalTo: self.mainBackgroundView.rightAnchor, constant: -16),
+            self.stackView.bottomAnchor.constraint(equalTo: self.mainBackgroundView.bottomAnchor, constant: -16),
+            
+            self.titleQuestionLabel.topAnchor.constraint(equalTo: self.contentViewToTitle.topAnchor, constant: 8),
+            self.titleQuestionLabel.leftAnchor.constraint(equalTo: self.contentViewToTitle.leftAnchor),
+            self.titleQuestionLabel.bottomAnchor.constraint(equalTo: self.contentViewToTitle.bottomAnchor, constant: -8),
+            
+            self.arrowIcon.centerYAnchor.constraint(equalTo: self.contentViewToTitle.centerYAnchor),
+            self.arrowIcon.rightAnchor.constraint(equalTo: self.contentViewToTitle.rightAnchor, constant: -8),
+            self.arrowIcon.leftAnchor.constraint(greaterThanOrEqualTo: self.titleQuestionLabel.rightAnchor, constant: 8),
+            self.arrowIcon.widthAnchor.constraint(equalToConstant: 20),
+            self.arrowIcon.heightAnchor.constraint(equalToConstant: 20),
+            
+            self.spacingView.heightAnchor.constraint(equalToConstant: 16)
+        ])
+        
+        self.backgroundColoredView.backgroundColor = .purple
+        self.mainBackgroundView.backgroundColor = .white
     }
 }
