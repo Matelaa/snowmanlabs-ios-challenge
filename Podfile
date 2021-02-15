@@ -6,5 +6,6 @@ target 'snowmanlabs-ios-challenge' do
   use_frameworks!
 
   # Pods for snowmanlabs-ios-challenge
-
+  pod 'Firebase/Database'
+  
 end

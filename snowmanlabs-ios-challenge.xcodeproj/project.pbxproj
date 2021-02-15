@@ -13,6 +13,7 @@
 		F22D886925DACE3600E5A44F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D886825DACE3600E5A44F /* ViewController.swift */; };
 		F22D886E25DACE3800E5A44F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22D886D25DACE3800E5A44F /* Assets.xcassets */; };
 		F22D887125DACE3800E5A44F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22D886F25DACE3800E5A44F /* LaunchScreen.storyboard */; };
+		F2FEAA6325DAD80800835B75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2FEAA6225DAD80800835B75 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F22D886D25DACE3800E5A44F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F22D887025DACE3800E5A44F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F22D887225DACE3800E5A44F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2FEAA6225DAD80800835B75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +56,6 @@
 				7FF1AF402A28D2F0A10FBB19 /* Pods-snowmanlabs-ios-challenge.debug.xcconfig */,
 				2CB290D3084A99955F91AAD3 /* Pods-snowmanlabs-ios-challenge.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -82,6 +83,7 @@
 				F22D887B25DAD5BC00E5A44F /* Application */,
 				F22D887C25DAD5E100E5A44F /* Controllers */,
 				F22D886F25DACE3800E5A44F /* LaunchScreen.storyboard */,
+				F2FEAA6225DAD80800835B75 /* GoogleService-Info.plist */,
 				F22D887225DACE3800E5A44F /* Info.plist */,
 			);
 			path = "snowmanlabs-ios-challenge";
@@ -116,6 +118,7 @@
 				F22D885D25DACE3600E5A44F /* Sources */,
 				F22D885E25DACE3600E5A44F /* Frameworks */,
 				F22D885F25DACE3600E5A44F /* Resources */,
+				0A6AC72FCC06B05A967016BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,12 +168,30 @@
 			files = (
 				F22D887125DACE3800E5A44F /* LaunchScreen.storyboard in Resources */,
 				F22D886E25DACE3800E5A44F /* Assets.xcassets in Resources */,
+				F2FEAA6325DAD80800835B75 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A6AC72FCC06B05A967016BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-snowmanlabs-ios-challenge/Pods-snowmanlabs-ios-challenge-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-snowmanlabs-ios-challenge/Pods-snowmanlabs-ios-challenge-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-snowmanlabs-ios-challenge/Pods-snowmanlabs-ios-challenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CB86B23DFA93932B49C57645 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
