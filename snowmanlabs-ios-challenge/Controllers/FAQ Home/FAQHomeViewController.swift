@@ -9,6 +9,25 @@ import UIKit
 
 class FAQHomeViewController: UIViewController {
 
+    lazy var addMoreQuestionsButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.layer.cornerRadius = 20
+        
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.setTitle("Adicionar Pergunta", for: .normal)
+        button.setTitleColor(UIColor(red: 0.07, green: 0.09, blue: 0.60, alpha: 1.00), for: .normal)
+        
+        button.backgroundColor = UIColor(red: 1.00, green: 0.75, blue: 0.00, alpha: 1.00)
+        
+        button.addTarget(self, action: #selector(FAQHomeViewController.addMoreQuestionButtonTapped), for: .touchUpInside)
+        
+        self.view.addSubview(button)
+        return button
+    }()
+
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         
@@ -37,6 +56,8 @@ class FAQHomeViewController: UIViewController {
         self.view.backgroundColor = .white
         
         self.setupTableView()
+        
+        self.setupConstraints()
     }
     
     private func setupTableView() {
@@ -46,17 +67,24 @@ class FAQHomeViewController: UIViewController {
         self.tableView.register(FAQHomeTableViewCell.self, forCellReuseIdentifier: "Cell")
         
         self.tableView.separatorStyle = .none
-        
-        self.setupTableViewConstraints()
     }
     
-    private func setupTableViewConstraints() {
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 24),
             self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
             self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
-            self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -24),
+            self.tableView.bottomAnchor.constraint(equalTo: self.addMoreQuestionsButton.topAnchor, constant: -12),
+            
+            self.addMoreQuestionsButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20),
+            self.addMoreQuestionsButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20),
+            self.addMoreQuestionsButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -28),
+            self.addMoreQuestionsButton.heightAnchor.constraint(equalToConstant: 60)
         ])
+    }
+    
+    @objc func addMoreQuestionButtonTapped() {
+        print("button tapped")
     }
 }
 
