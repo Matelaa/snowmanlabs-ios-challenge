@@ -10,6 +10,7 @@ import Foundation
 protocol QuestionViewModelDelegate {
     func getQuestions()
     func addedNewQuestion()
+    func loading(isLoading: Bool)
 }
 
 class QuestionViewModel {
@@ -20,6 +21,7 @@ class QuestionViewModel {
     
     func getQuestions() {
         self.service.delegate = self
+        self.delegate.loading(isLoading: true)
         self.service.observeQuestions()
     }
     
@@ -35,6 +37,7 @@ class QuestionViewModel {
 
 extension QuestionViewModel: QuestionsServiceDelegate {
     func fetchQuestions(questions: [Question]) {
+        self.delegate.loading(isLoading: false)
         self.questions = questions
         self.delegate.getQuestions()
     }

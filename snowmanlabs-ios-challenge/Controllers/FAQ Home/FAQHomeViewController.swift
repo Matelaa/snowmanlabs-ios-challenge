@@ -9,6 +9,16 @@ import UIKit
 
 class FAQHomeViewController: UIViewController {
 
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.center = self.view.center
+        activityIndicator.color = .gray
+        activityIndicator.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+        activityIndicator.startAnimating()
+        return activityIndicator
+    }()
+    
     lazy var addMoreQuestionsButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -44,17 +54,15 @@ class FAQHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .white
+        
         self.title = "Perguntas Frequentes"
         
         self.viewModel.delegate = self
         self.viewModel.getQuestions()
-        
-        self.setupUI()
     }
     
     private func setupUI() {
-        self.view.backgroundColor = .white
-        
         self.setupTableView()
         
         self.setupConstraints()
@@ -71,7 +79,7 @@ class FAQHomeViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 24),
+            self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 6),
             self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
             self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
             self.tableView.bottomAnchor.constraint(equalTo: self.addMoreQuestionsButton.topAnchor, constant: -12),
@@ -80,6 +88,15 @@ class FAQHomeViewController: UIViewController {
             self.addMoreQuestionsButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20),
             self.addMoreQuestionsButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -28),
             self.addMoreQuestionsButton.heightAnchor.constraint(equalToConstant: 60)
+        ])
+    }
+    
+    private func setupActivityIndicatorConstraints() {
+        NSLayoutConstraint.activate([
+            self.activityIndicator.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.activityIndicator.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            self.activityIndicator.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            self.activityIndicator.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         ])
     }
     
@@ -135,6 +152,16 @@ extension FAQHomeViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension FAQHomeViewController: QuestionViewModelDelegate {
+    func loading(isLoading: Bool) {
+        if isLoading {
+            self.view.addSubview(self.activityIndicator)
+            self.setupActivityIndicatorConstraints()
+        } else {
+            self.activityIndicator.removeFromSuperview()
+            self.setupUI()
+        }
+    }
+    
     func getQuestions() {
         self.tableView.reloadData()
     }

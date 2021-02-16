@@ -364,5 +364,7 @@ extension FAQNewQuestionViewController: QuestionViewModelDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func loading(isLoading: Bool) {}
+    
     func getQuestions() {}
 }
