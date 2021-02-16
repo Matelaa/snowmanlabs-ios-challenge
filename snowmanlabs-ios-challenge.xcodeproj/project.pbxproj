@@ -13,6 +13,7 @@
 		F22D886E25DACE3800E5A44F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22D886D25DACE3800E5A44F /* Assets.xcassets */; };
 		F22D887125DACE3800E5A44F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22D886F25DACE3800E5A44F /* LaunchScreen.storyboard */; };
 		F290517A25DC22A20098EC92 /* FAQNewQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F290517925DC22A20098EC92 /* FAQNewQuestionViewController.swift */; };
+		F290517F25DC23C20098EC92 /* FieldWithFloatingLabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F290517E25DC23C20098EC92 /* FieldWithFloatingLabelComponent.swift */; };
 		F2FEAA6325DAD80800835B75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2FEAA6225DAD80800835B75 /* GoogleService-Info.plist */; };
 		F2FEAA7325DAD91C00835B75 /* FAQHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEAA7225DAD91C00835B75 /* FAQHomeViewController.swift */; };
 		F2FEAA7725DADBA200835B75 /* FAQHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEAA7625DADBA200835B75 /* FAQHomeTableViewCell.swift */; };
@@ -32,6 +33,7 @@
 		F22D887025DACE3800E5A44F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F22D887225DACE3800E5A44F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F290517925DC22A20098EC92 /* FAQNewQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQNewQuestionViewController.swift; sourceTree = "<group>"; };
+		F290517E25DC23C20098EC92 /* FieldWithFloatingLabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldWithFloatingLabelComponent.swift; sourceTree = "<group>"; };
 		F2FEAA6225DAD80800835B75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2FEAA7225DAD91C00835B75 /* FAQHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQHomeViewController.swift; sourceTree = "<group>"; };
 		F2FEAA7625DADBA200835B75 /* FAQHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQHomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				F22D887B25DAD5BC00E5A44F /* Application */,
+				F290517D25DC239D0098EC92 /* Components */,
 				F22D887C25DAD5E100E5A44F /* Controllers */,
 				F2FEAA7A25DAE6D000835B75 /* Model */,
 				F2FEAA7E25DAE73600835B75 /* Service */,
@@ -127,6 +130,14 @@
 				F290517925DC22A20098EC92 /* FAQNewQuestionViewController.swift */,
 			);
 			path = "FAQ Create";
+			sourceTree = "<group>";
+		};
+		F290517D25DC239D0098EC92 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F290517E25DC23C20098EC92 /* FieldWithFloatingLabelComponent.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		F2FEAA7025DAD8FC00835B75 /* FAQ Home */ = {
@@ -285,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2FEAA7C25DAE6E100835B75 /* Question.swift in Sources */,
+				F290517F25DC23C20098EC92 /* FieldWithFloatingLabelComponent.swift in Sources */,
 				F2FEAA8525DAE98A00835B75 /* QuestionViewModel.swift in Sources */,
 				F22D886525DACE3600E5A44F /* AppDelegate.swift in Sources */,
 				F2FEAA7725DADBA200835B75 /* FAQHomeTableViewCell.swift in Sources */,

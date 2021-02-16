@@ -84,7 +84,8 @@ class FAQHomeViewController: UIViewController {
     }
     
     @objc func addMoreQuestionButtonTapped() {
-        print("button tapped")
+        let controller = FAQNewQuestionViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 
