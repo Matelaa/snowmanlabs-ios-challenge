@@ -13,17 +13,22 @@ class FAQHomeViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .red
+        tableView.backgroundColor = .white
         
         self.view.addSubview(tableView)
         
         return tableView
     }()
     
+    var viewModel = QuestionViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Perguntas Frequentes"
+        
+        self.viewModel.delegate = self
+        self.viewModel.getQuestions()
         
         self.setupUI()
     }
@@ -57,16 +62,53 @@ class FAQHomeViewController: UIViewController {
 
 extension FAQHomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.viewModel.questions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FAQHomeTableViewCell
         
+        cell.bind(question: self.viewModel.questions[indexPath.item])
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! FAQHomeTableViewCell
+        
+        self.viewModel.updateExpandedCellValue(question: self.viewModel.questions[indexPath.item], index: indexPath.item)
+        
+        cell.clickInCell(isExpanded: self.viewModel.questions[indexPath.item].expanded)
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
+}
+
+extension FAQHomeViewController: QuestionViewModelDelegate {
+    func getQuestions() {
+        self.tableView.reloadData()
+    }
+    
+    func addedNewQuestion() {}
 }

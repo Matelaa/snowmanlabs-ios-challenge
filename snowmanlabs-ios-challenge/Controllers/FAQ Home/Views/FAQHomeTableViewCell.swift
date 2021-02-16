@@ -45,6 +45,7 @@ class FAQHomeTableViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
+        label.numberOfLines = 0
         label.text = "Titulo da pergunta"
         
         return label
@@ -61,6 +62,7 @@ class FAQHomeTableViewCell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
+        label.numberOfLines = 0
         label.text = "Resposta da pergunta"
         
         return label
@@ -71,6 +73,8 @@ class FAQHomeTableViewCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    var question: Question!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -86,6 +90,15 @@ class FAQHomeTableViewCell: UITableViewCell {
         self.spacingView.backgroundColor = .clear
         
         self.setupUI()
+    }
+    
+    func bind(question: Question) {
+        self.question = question
+        
+        self.titleQuestionLabel.text = self.question.title
+        self.answerQuestionLabel.text = self.question.answer
+        
+        self.isExpanded(isExpanded: self.question.expanded)
     }
     
     private func setupUI() {
@@ -138,5 +151,18 @@ class FAQHomeTableViewCell: UITableViewCell {
         
         self.backgroundColoredView.backgroundColor = .purple
         self.mainBackgroundView.backgroundColor = .white
+    }
+    
+    func isExpanded(isExpanded: Bool) {
+        self.arrowIcon.transform = isExpanded ? CGAffineTransform(rotationAngle: .pi) : CGAffineTransform(rotationAngle: 0)
+        self.answerQuestionLabel.isHidden = !isExpanded
+    }
+    
+    func clickInCell(isExpanded: Bool) {
+        
+        self.answerQuestionLabel.layoutIfNeeded()
+        UIView.animate(withDuration: 0.4) {
+            self.isExpanded(isExpanded: isExpanded)
+        }
     }
 }
