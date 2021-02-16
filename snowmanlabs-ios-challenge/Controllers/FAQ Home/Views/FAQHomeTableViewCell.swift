@@ -85,9 +85,13 @@ class FAQHomeTableViewCell: UITableViewCell {
         
         self.selectionStyle = .none
         
+        self.mainBackgroundView.backgroundColor = .white
         self.answerQuestionLabel.isHidden = true
         self.arrowIcon.tintColor = UIColor(red: 0.46, green: 0.47, blue: 0.52, alpha: 1.00)
         self.spacingView.backgroundColor = .clear
+        
+        self.setupCornerRadiusInCell()
+        self.setupShadows()
         
         self.setupUI()
     }
@@ -99,6 +103,19 @@ class FAQHomeTableViewCell: UITableViewCell {
         self.answerQuestionLabel.text = self.question.answer
         
         self.isExpanded(isExpanded: self.question.expanded)
+    }
+    
+    private func setupCornerRadiusInCell() {
+        self.clipsToBounds = true
+        self.mainBackgroundView.layer.cornerRadius = 10
+        self.backgroundColoredView.layer.cornerRadius = 10
+    }
+    
+    private func setupShadows() {
+        self.backgroundColoredView.layer.shadowColor = UIColor.black.cgColor
+        self.backgroundColoredView.layer.shadowOpacity = 0.4
+        self.backgroundColoredView.layer.shadowOffset = .zero
+        self.backgroundColoredView.layer.shadowRadius = 2
     }
     
     private func setupUI() {
@@ -150,7 +167,6 @@ class FAQHomeTableViewCell: UITableViewCell {
         ])
         
         self.backgroundColoredView.backgroundColor = .purple
-        self.mainBackgroundView.backgroundColor = .white
     }
     
     func isExpanded(isExpanded: Bool) {

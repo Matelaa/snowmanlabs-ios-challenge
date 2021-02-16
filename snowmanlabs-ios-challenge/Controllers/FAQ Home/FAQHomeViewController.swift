@@ -52,7 +52,7 @@ class FAQHomeViewController: UIViewController {
     
     private func setupTableViewConstraints() {
         NSLayoutConstraint.activate([
-            self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 24),
             self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
             self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
             self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -24),
