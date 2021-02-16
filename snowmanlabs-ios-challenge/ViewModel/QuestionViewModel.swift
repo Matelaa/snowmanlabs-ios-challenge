@@ -27,6 +27,7 @@ class QuestionViewModel {
     
     func postQuestion(title: String, answer: String, color: Int) {
         self.service.delegate = self
+        self.delegate.loading(isLoading: true)
         self.service.postQuestion(title: title, answer: answer, color: color)
     }
     
@@ -43,8 +44,8 @@ extension QuestionViewModel: QuestionsServiceDelegate {
     }
     
     func createQuestion(question: Question) {
+        self.delegate.loading(isLoading: false)
         self.questions.append(question)
-        
         self.delegate.addedNewQuestion()
     }
 }

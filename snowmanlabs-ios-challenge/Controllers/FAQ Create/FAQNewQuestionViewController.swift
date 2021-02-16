@@ -165,6 +165,16 @@ class FAQNewQuestionViewController: UIViewController {
         return button
     }()
     
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.center = self.view.center
+        activityIndicator.color = .gray
+        activityIndicator.backgroundColor = UIColor(red: 1.00, green: 0.75, blue: 0.00, alpha: 1.00)
+        activityIndicator.startAnimating()
+        return activityIndicator
+    }()
+    
     var oldTag: Int = 0
     var selectedTagView: Int = 0
     var viewModel = QuestionViewModel()
@@ -341,6 +351,15 @@ class FAQNewQuestionViewController: UIViewController {
             self.confirmButton.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
         ])
     }
+    
+    private func setupActivityIndicatorConstraints() {
+        NSLayoutConstraint.activate([
+            self.activityIndicator.topAnchor.constraint(equalTo: self.confirmButton.topAnchor),
+            self.activityIndicator.leftAnchor.constraint(equalTo: self.confirmButton.leftAnchor),
+            self.activityIndicator.rightAnchor.constraint(equalTo: self.confirmButton.rightAnchor),
+            self.activityIndicator.bottomAnchor.constraint(equalTo: self.confirmButton.bottomAnchor),
+        ])
+    }
 }
 
 extension FAQNewQuestionViewController: UITextViewDelegate {
@@ -361,10 +380,21 @@ extension FAQNewQuestionViewController: UITextViewDelegate {
 
 extension FAQNewQuestionViewController: QuestionViewModelDelegate {
     func addedNewQuestion() {
-        self.navigationController?.popViewController(animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
-    func loading(isLoading: Bool) {}
+    func loading(isLoading: Bool) {
+        if isLoading {
+            self.confirmButton.addSubview(self.activityIndicator)
+            self.setupActivityIndicatorConstraints()
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.activityIndicator.removeFromSuperview()
+            }
+        }
+    }
     
     func getQuestions() {}
 }
