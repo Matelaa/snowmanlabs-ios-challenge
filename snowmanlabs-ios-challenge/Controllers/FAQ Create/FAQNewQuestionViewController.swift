@@ -176,7 +176,6 @@ class FAQNewQuestionViewController: UIViewController {
     }()
     
     var oldTag: Int = 0
-    var selectedTagView: Int = 0
     var viewModel = QuestionViewModel()
     
     override func viewDidLoad() {
