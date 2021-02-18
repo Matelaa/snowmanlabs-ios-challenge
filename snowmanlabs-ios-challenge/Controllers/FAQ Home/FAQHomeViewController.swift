@@ -37,7 +37,6 @@ class FAQHomeViewController: UIViewController {
         return button
     }()
 
-    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         
@@ -49,23 +48,47 @@ class FAQHomeViewController: UIViewController {
         return tableView
     }()
     
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
+    
     var viewModel = QuestionViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        self.title = "Perguntas Frequentes"
         
         self.view.backgroundColor = .white
-        
-        self.title = "Perguntas Frequentes"
         
         self.viewModel.delegate = self
         self.viewModel.getQuestions()
     }
     
     private func setupUI() {
+        self.setupSearchController()
         self.setupTableView()
         
         self.setupConstraints()
+    }
+    
+    private func setupSearchController() {
+        searchController.searchBar.delegate = self
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        
+        searchController.searchBar.barStyle = .black
+        searchController.searchBar.searchTextField.leftView?.tintColor = .white
+        searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Procurar perguntas", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     private func setupTableView() {
@@ -104,17 +127,27 @@ class FAQHomeViewController: UIViewController {
         let controller = FAQNewQuestionViewController()
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        self.viewModel.searchQuestions(text: searchText)
+        self.tableView.reloadData()
+    }
 }
 
 extension FAQHomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.questions.count
+        
+        return isFiltering ? self.viewModel.filteredQuestions.count : self.viewModel.questions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FAQHomeTableViewCell
         
-        cell.bind(question: self.viewModel.questions[indexPath.item])
+        if isFiltering {
+            cell.bind(question: self.viewModel.filteredQuestions[indexPath.item])
+        } else {
+            cell.bind(question: self.viewModel.questions[indexPath.item])
+        }
         
         return cell
     }
@@ -148,6 +181,20 @@ extension FAQHomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
+    }
+}
+
+extension FAQHomeViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.viewModel.resetExpandedQuestionValues()
+        self.tableView.reloadData()
+    }
+}
+
+extension FAQHomeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        self.filterContentForSearchText(searchBar.text!)
     }
 }
 

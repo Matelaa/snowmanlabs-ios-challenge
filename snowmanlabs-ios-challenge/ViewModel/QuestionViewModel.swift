@@ -16,6 +16,7 @@ protocol QuestionViewModelDelegate {
 class QuestionViewModel {
     
     var questions: [Question] = []
+    var filteredQuestions: [Question] = []
     var service = QuestionService()
     var delegate: QuestionViewModelDelegate!
     
@@ -33,6 +34,18 @@ class QuestionViewModel {
     
     func updateExpandedCellValue(question: Question, index: Int) {
         self.questions[index].expanded = !question.expanded
+    }
+    
+    func resetExpandedQuestionValues() {
+        for i in 0..<self.questions.count {
+            self.questions[i].expanded = false
+        }
+    }
+    
+    func searchQuestions(text: String) {
+        self.filteredQuestions = self.questions.filter({ (question: Question) -> Bool in
+            return question.title.lowercased().folding(options: .diacriticInsensitive, locale: .current).contains(text.lowercased().folding(options: .diacriticInsensitive, locale: .current)) || question.answer.lowercased().folding(options: .diacriticInsensitive, locale: .current).contains(text.lowercased().folding(options: .diacriticInsensitive, locale: .current))
+        })
     }
 }
 
