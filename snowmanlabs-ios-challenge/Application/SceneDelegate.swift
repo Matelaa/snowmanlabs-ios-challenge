@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationController.navigationBar.barTintColor = UIColor(red: 0.06, green: 0.09, blue: 0.60, alpha: 1.00)
         navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController.navigationBar.tintColor = .white
+        navigationController.view.backgroundColor = UIColor(red: 0.06, green: 0.09, blue: 0.60, alpha: 1.00)
         
         window?.windowScene = windowScene
         window?.rootViewController = navigationController
